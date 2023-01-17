@@ -33,6 +33,7 @@
 #include <unistd.h>
 #include <err.h>
 #include <signal.h>
+#include <sys/sysmacros.h>
 /** 
 *	gsmmux.h provides n_gsm line dicipline structures and functions. 
 *	It should be kept in sync with your kernel release.
@@ -319,7 +320,7 @@ int main(void) {
 		warnx("AT+GMM: bad response");
 	if (send_at_command(serial_fd, "AT\r") == -1)
 		warnx("AT: bad response");
-	if (send_at_command(serial_fd, "AT+IPR=115200&w\r") == -1)
+	if (send_at_command(serial_fd, "AT+IPR=115200\r") == -1)
 		errx(EXIT_FAILURE, "AT+IPR=115200&w: bad response");
 	sprintf(atcommand, "AT+CMUX=0,0,5,%d,10,3,30,10,2\r", MTU);
 	if (send_at_command(serial_fd, atcommand) == -1)
