@@ -51,7 +51,7 @@
 #endif
 
 /* serial port of the modem */
-#define SERIAL_PORT	"/dev/ttyS0"
+#define SERIAL_PORT	"/dev/serial0"
 
 /* line speed */
 #define LINE_SPEED	B115200
